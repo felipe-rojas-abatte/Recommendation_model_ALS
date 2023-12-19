@@ -10,6 +10,7 @@ Tables needed to construct the affinity matrix
 
 Add to cart items for LiderApp:
 - `wmt-1257d458107910dad54c01f5c8.search.search_a2c`
+  
 Customer search results for LiderApp:
 - `wmt-1257d458107910dad54c01f5c8.dw_customer_search_recom_se.vds_customer_search_result`
 
