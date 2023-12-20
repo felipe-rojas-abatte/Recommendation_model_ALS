@@ -10,6 +10,7 @@ Tables needed to construct the affinity matrix
 
 Add to cart items for LiderApp:
 - `wmt-1257d458107910dad54c01f5c8.search.search_a2c`
+
 Customer search results for LiderApp:
 - `wmt-1257d458107910dad54c01f5c8.dw_customer_search_recom_se.vds_customer_search_result`
 
@@ -28,7 +29,8 @@ To install the project, clone the repositorry in your machine and then eecute th
 ## How to run
 
 To run the pipeline execute the following command:
-- python pipeline/main.py
+- `cd pipeline`
+- `python main.py`
 
 ## Structure of the Model: Classes and Methods
 
@@ -122,6 +124,8 @@ In this diagram, the arrows represent the flow of data.
 
 ## Input parameters of the model
 
+Please note that these are just initial testing values. Users have the flexibility to modify these numbers based on their specific requirements and computational capabilities to optimize their recommendation system further.
+
 ### Date Parameters
 This dictionary contains the time range used for training and testing the ALS model:
 
@@ -132,17 +136,17 @@ This dictionary contains the time range used for training and testing the ALS mo
 ### Queries Parameters
 This dictionary contains the SQL queries used to retrieve the necessary information for training and testing:
 
-- `a2c_matrix`: This is the SQL query used to generate the add-to-cart matrix. This matrix may contain information about which users added which items to their carts.
-- `imp_matrix`: This is the SQL query used to generate the impressions matrix. This matrix may contain information about which users viewed which items.
-- `train_matrix`: This is the SQL query used to generate the training matrix. This matrix may contain the user-item interactions used for training the model.
-- `test_matrix`: This is the SQL query used to generate the test matrix. This matrix may contain the user-item interactions used for testing the model.
+- `a2c_matrix`: This is the SQL query used to generate the add-to-cart matrix. This matrix contains information about which users added which items to their carts.
+- `imp_matrix`: This is the SQL query used to generate the impressions matrix. This matrix contains information about which users viewed which items.
+- `train_matrix`: This is the SQL query used to generate the training matrix. This matrix contains the user-item interactions used for training the model.
+- `test_matrix`: This is the SQL query used to generate the test matrix. This matrix contains the user-item interactions used for testing the model.
 
 ### Scan Parameters Model
 This dictionary contains the hyperparameters that will be tested in the model:
 
-- `nfactors`: This is the number of latent factors. Latent factors are underlying dimensions that explain the observed user-item interactions. The model will be tested with 10 and 50 latent factors.
-- `regularization`: A parameter to prevent overfitting. Larger values specify stronger regularization. The model will be tested with a regularization parameter of 1 and 30.
-- `alpha`: This is the confidence parameter and it governs the baseline confidence in preference predictions. The model will be tested with an alpha of 40 and 80.
+- `nfactors`: This is the number of latent factors. Latent factors are underlying dimensions that explain the observed user-item interactions. The model will be tested between 10 and 50 latent factors.
+- `regularization`: A parameter to prevent overfitting. Larger values specify stronger regularization. The model will be tested with a regularization parameter between 1 and 30.
+- `alpha`: This is the confidence parameter and it governs the baseline confidence in preference predictions. The model will be tested with an alpha between 40 and 80.
 - `iterations`: The number of iterations to run the ALS algorithm. More iterations can lead to a more accurate model but also increase the computational cost.
 
 ### Evaluation Parameters
@@ -150,8 +154,8 @@ This dictionary contains the parameters used to evaluate the model's performance
 
 - `cutoff_k`: The number of top-ranked items to consider when calculating NDCG, precision and recall. In this case, only the top 20 items are considered.
 - `evaluation_metric`: This is the metric used to evaluate the model. It can be either dot_product or euclidean_distance, however dot_product shows better performence.
-- `top_n_products`: This represents the number of top products to consider when evaluating the model. Increasing this number the evaluation will consider more products, which might make it more accurate Main Average Improvement but also more computationally expensive.
-- `sample_size`: This number represents the size of the sample that the class is going to compute for each product. It's a number between 0 and 1, representing a percentage of the total data. If you increase this number, the evaluation will consider more data, making it more accurate but also more computationally expensive. 20% of the data will be used in this case.
+- `top_n_products`: This represents the number of top products to consider when evaluating the model. Increasing this number will enhance the accuracy of the Main Average Improvement metric but also will be more computationally expensive.
+- `sample_size`: This number represents the size of the sample that the class is going to compute for each product. It's a number between 0.1 and 1.0, representing a percentage of the total data. If you increase this number, the evaluation will consider more data, making it more accurate but also more computationally expensive. 20% of the data will be used in this case.
 
 ### BayesSearchCV Parameters
 This dictionary contains the hyperparameters for the BayesSearchCV method:

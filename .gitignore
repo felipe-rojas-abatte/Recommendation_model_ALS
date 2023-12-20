@@ -1,1 +1,7 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
 .DS_Store
+latent_vectors/latent_vector_*
+.ipynb_checkpoints
+recommendation_system.log
+ALS_hyperparameter_scan_*

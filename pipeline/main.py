@@ -28,6 +28,9 @@ if __name__ == '__main__':
 
     # Store Latent Vectors
     store_latent_vectors(alsmodel_best)
+    
+    # Log Info
+    logger.info('ALS Model successfully completed')
 
     # Final Time
     display_final_time(start_time)
