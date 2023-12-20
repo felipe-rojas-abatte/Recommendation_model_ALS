@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 .DS_Store
@@ -5,3 +6,7 @@ latent_vectors/latent_vector_*
 .ipynb_checkpoints
 recommendation_system.log
 ALS_hyperparameter_scan_*
+=======
+.DS_Store
+pipeline/latent_vectors/*
+>>>>>>> ceffb70ca74985a4b2b9bd63a126d044dfb994bd
